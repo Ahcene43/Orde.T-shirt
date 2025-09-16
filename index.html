@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>أنقر في الرابط وأطلب الآن</title>
+<style>
+body {
+  font-family: "Cairo", sans-serif;
+  direction: rtl;
+  background: linear-gradient(135deg,#f8f9fa,#e9ecef);
+  margin:0; padding:20px;
+}
+h2 { text-align:center; color:#2c3e50; margin-bottom:20px; font-size:26px; }
+form {
+  max-width:600px; margin:auto;
+  background:#fff; padding:25px;
+  border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+label { display:block; margin-top:12px; font-weight:bold; color:#444; }
+input, select { width:100%; padding:10px; margin-top:6px; border:1px solid #ccc; border-radius:8px; font-size:15px; }
+input:focus, select:focus { border-color:#007bff; box-shadow:0 0 5px rgba(0,123,255,0.3); }
+.piece { margin:18px 0; padding:15px; background:#fdfdfd; border-radius:10px; border:1px solid #e0e0e0; }
+.piece h3 { margin-top:0; color:#007bff; font-size:20px; margin-bottom:10px; }
+.tshirt-preview { width:80px; height:80px; border-radius:8px; border:1px solid #ccc; margin-top:10px; display:flex; justify-content:center; align-items:center; font-weight:bold; color:#555; transition:all 0.3s; }
+.hidden { display:none; }
+button { margin-top:20px; padding:14px; background:linear-gradient(90deg,#28a745,#218838); color:white; border:none; border-radius:8px; font-size:17px; font-weight:bold; cursor:pointer; width:100%; transition:0.3s; }
+button:hover { background:linear-gradient(90deg,#218838,#1e7e34); transform:scale(1.02); }
+#price { margin-top:20px; font-size:20px; color:#e67e22; font-weight:bold; text-align:center; }
+.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.5); justify-content:center; align-items:center; }
+.modal-content { background-color:#fff; padding:30px; border-radius:12px; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,0.3); max-width:400px; margin:auto; }
+.close-btn { margin-top:20px; padding:10px 20px; background:#007bff; color:#fff; border:none; border-radius:8px; cursor:pointer; font-size:15px; }
+.close-btn:hover { background:#0056b3; }
+</style>
+</head>
+<body>
+<h2>🛍️ نموذج طلب T-shirt Sanix</h2>
+<form id="orderForm">
+<label>👤 الاسم الكامل:</label>
+<input type="text" name="name" required>
+
+<label>📞 رقم الهاتف:</label>
+<input type="text" name="phone" required>
+
+<label>🌍 الولاية:</label>
+<select name="wilaya" id="wilayaSelect" required></select>
+
+<label>🏘️ الدائرة:</label>
+<input type="text" name="daira" required>
+
+<label>📍 العنوان:</label>
+<input type="text" name="address" required>
+
+<label>🔢 عدد القطع:</label>
+<select id="quantity" name="quantity" required>
+  <option value="1">1 قطعة</option>
+  <option value="2">2 قطع</option>
+  <option value="3">3 قطع أو أكثر</option>
+</select>
+
+<div id="totalCountDiv" class="hidden">
+  <label>عدد القطع الكلي:</label>
+  <input type="number" id="totalCount" name="totalCount" min="3" value="3">
+</div>
+
+<div id="piecesContainer"></div>
+
+<div id="price">💰 السعر: 2200 دج</div>
+
+<button type="submit">✅ تأكيد الطلبية</button>
+</form>
+
+<div id="successModal" class="modal">
+<div class="modal-content">
+  <h3>🎉 تم إرسال الطلبية بنجاح!</h3>
+  <p>شكرًا على اختيارك منتوجاتنا. سنتواصل معك قريبًا.</p>
+  <button class="close-btn" id="closeModal">إغلاق</button>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
