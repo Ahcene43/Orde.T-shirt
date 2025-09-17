@@ -50,9 +50,9 @@ function renderPieces(total) {
       <select name="size${i}" class="sizeSelect">
         <option value="S">S</option>
         <option value="M">M</option>
-        <option value="L">L</option>
+        
         <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
+        
       </select>
       <div class="tshirt-preview" id="preview${i}">👕</div>
     `;
